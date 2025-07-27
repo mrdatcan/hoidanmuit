@@ -1,1 +1,4 @@
-export class CreateUserDto {}
+// file data tranfer object
+export class CreateUserDto {
+    
+}
