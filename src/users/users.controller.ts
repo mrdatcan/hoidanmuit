@@ -3,17 +3,26 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import e from 'express';
+//Định nghĩa các route API như GET /users, POST /users,...
+// Gọi tới UsersService để xử lý logic.
 
 @Controller('users') // mac dinh
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post() // sau users/ se la cai nay
-   create(
-    @Body("email") email: string,
-    @Body("password") password: string,
-    @Body("name") name: string) {
-    return this.usersService.create(email, password, name);
+   create( //khai bao create o body 
+    @Body() TranTinDat : CreateUserDto
+    
+
+    // @Body("email") email: string,
+    // @Body("password") password: string,
+    // @Body("name") name: string,
+  ) 
+    
+  {
+    
+    return this.usersService.create(TranTinDat);
     // return "this.usersService.create()" + myEmail;
     // const myEmail : string = req.body.email;
   }

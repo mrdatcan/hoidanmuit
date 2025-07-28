@@ -11,26 +11,37 @@ export class UsersService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
   gethashPassword = (password : string) =>{
     // var bcrypt = require('bcryptjs');
+    // Chứa logic nghiệp vụ như tạo user, hash password, gọi database...
+    //Inject Model<User> để làm việc với MongoDB.
+
+
+
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
     return hash;
   }
   // cai contructor qqjzzz gi the kho hieu qua
-  
-  async create(email: string, password: string, name: string) {
-    const hashPassword = this.gethashPassword(password);
+  async create(TranTinDat: CreateUserDto){
+  // async create(email: string, password: string, name: string) {
+    const hashPassword = this.gethashPassword(TranTinDat.password);
+
+
     let user = await this.userModel.create({
+
       //dong code tren de hung cai dong data nay
-      email,
-      password : hashPassword,
-      name,
+     // may cai nay nhu kieu contructor get set 
+      email : TranTinDat.email,
+       password : hashPassword, 
+       name : TranTinDat.name
       // createdAt: new Date(),
       // updatedAt: new Date(),
     })
+        return user;
+
+    }
     // const newUser = new this.userModel({ email, password, name });
     // return newUser.save();
-    return user;
-  }
+  
 
   findAll() {
     return `This action returns all users`;

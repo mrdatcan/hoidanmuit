@@ -1,6 +1,9 @@
 import { Controller, Get, Render } from '@nestjs/common';
 import { AppService } from './app.service';
 import { ConfigService } from '@nestjs/config';
+// cai nay de quan contructor ??
+//Dùng để trình bày Cách tạo controller/service.
+
 
 @Controller()
 export class AppController {

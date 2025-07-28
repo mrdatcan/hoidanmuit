@@ -1,8 +1,10 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { HydratedDocument } from "mongoose";
+//user.schemas.ts: Định nghĩa model User cho MongoDB.
+
 
 export type UserDocument = HydratedDocument<User>;
-
+//noi tao data
 @Schema()
 export class User {
   @Prop({ required: true })

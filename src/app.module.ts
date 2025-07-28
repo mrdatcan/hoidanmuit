@@ -4,6 +4,9 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import {MongooseModule} from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+//Root module. Nơi import tất cả các module con (UsersModule, AuthModule,...).
+//Mọi module đều phải được khai báo tại đây (trực tiếp hoặc gián tiếp).
+
 
 @Module({
   imports: [
